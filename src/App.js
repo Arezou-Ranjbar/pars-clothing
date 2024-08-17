@@ -1,35 +1,21 @@
-import Directory from "./components/directory/directory";
+import Home from "./routs/home/home";
+import Shop from "./routs/shop/shop";
+import Checkout from "./routs/checkout/checkout";
+import { Route, Routes } from "react-router";
+import Navigation from "./routs/navigation/navigation";
+import Authentication from "./routs/authentication/authentication";
 
 function App() {
-  const categories = [
-    {
-      id: 1,
-      title: "Hats",
-      imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
-    },
-    {
-      id: 2,
-      title: "Jackets",
-      imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
-    },
-    {
-      id: 3,
-      title: "Sneakers",
-      imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
-    },
-    {
-      id: 4,
-      title: "Women's",
-      imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
-    },
-    {
-      id: 5,
-      title: "Men's",
-      imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
-    },
-  ];
-
-  return <Directory categories={categories} />;
+  return (
+    <Routes>
+      <Route path="/" element={<Navigation />}>
+        <Route index element={<Home />} />
+        <Route path="/shop/*" element={<Shop />} />
+        <Route path="/authentication" element={<Authentication />} />
+        <Route path="/checkout" element={<Checkout />} />
+      </Route>
+    </Routes>
+  );
 }
 
 export default App;
